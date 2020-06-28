@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
   <title>Document</title>
 </head>
@@ -13,15 +14,15 @@
 
   <div class="container">
     <div class="card">
-      <input class="content" type="number" placeholder="Enter delay..." [formControl]="DelayInput">
-      <input class="content" type="text" required placeholder="Enter transform text..." [formControl]="TextInput">
+      <input class="input content" type="number" placeholder="Enter delay..." [formControl]="DelayInput">
+      <input class="input content" type="text" required placeholder="Enter transform text..." [formControl]="TextInput">
     </div>
     <div class="card">
-      <input class="content" type="button" value="Set delay" [formControl]="DelayButton" (click)="setDelay()">
-      <input class="content" type="button" value="Submit text" (click)="setText()">
+      <input class="button content" type="button" value="Set delay" [formControl]="DelayButton" (click)="setDelay()">
+      <input class="button content" type="button" value="Submit text" (click)="setText()">
     </div>
-    <div>
-      <div class="card">
+    <div class="card">
+      <div class="displayedText">
         {{receivedNote?.noteText}}
       </div>
     </div>

@@ -1,14 +1,48 @@
 .card {
-    width: fit-content;
+    min-width: 100%;
     padding: 50px;
     margin: 10px;
+    display: block;
+    text-align: center;
 
 }
 .content{
+    margin: 0px 20px;
+    min-width: 40%;
 }
 
 .containter{
     text-align: center;
-    
 }
 
+.displayedText{
+    min-width: 40%;
+    padding: 50px;
+    margin: 30px;
+}
+.button{
+    background-color:rgb(19, 19, 248) ;
+    color: white;
+}
+
+.input{
+    background-color: green;
+    color: white;
+}
+
+.displayedText{
+    background-color: rgb(190, 157, 9);
+    color: white;
+ }
+
+::-webkit-input-placeholder { /* Edge */
+    color: white;
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: white;
+  }
+  
+  ::placeholder {
+    color: white;
+  } 
