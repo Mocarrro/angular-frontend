@@ -5,9 +5,14 @@ import { Note } from '../classes/note';
 
 @Injectable()
 export class HttpService {
+
     readonly URL = 'http://localhost:3000/notes';
 
     constructor(private httpClient: HttpClient) { }
+
+    cancelRequests() {
+        return this.httpClient.post(this.URL + '/cancel', undefined);
+    }
 
     getNote(): Observable<any> {
         return this.httpClient.get(this.URL)

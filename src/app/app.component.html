@@ -20,6 +20,7 @@
     <div class="card">
       <input class="button content" type="button" value="Set delay" [formControl]="delayButton" (click)="setDelay()">
       <input class="button content" type="button" value="Submit text" (click)="setText()">
+      <input class="button content" type="button" value="Cancel Pending Requests" (click)="cancelPendingRequests()">
     </div>
     <div class="card">
       <div class="displayedText" *ngFor="let receivedNote of receivedNotes">

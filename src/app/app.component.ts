@@ -10,15 +10,15 @@ import { Note } from './classes/note'
 })
 export class AppComponent implements OnInit {
 
-   delayButton = new FormControl('');
+  delayButton = new FormControl('');
 
-   delayInput = new FormControl('');
+  delayInput = new FormControl('');
 
-   textInput = new FormControl('');
+  textInput = new FormControl('');
 
-   receivedNotes: Note[];
+  receivedNotes: Note[];
 
-   note: Note;  
+  note: Note;
 
   constructor(private httpService: HttpService) {
     this.note = new Note();
@@ -37,11 +37,18 @@ export class AppComponent implements OnInit {
     this.note.noteText = this.textInput.value;
     this.note.timestamp = Date.now();
 
-    this.httpService.sendToBackend(this.note).subscribe(
-      response => {
+    this.httpService.sendToBackend(this.note).toPromise().then((response) => {
+      if (!!response) {
         console.log('Hey, I got response!', response);
         this.receivedNotes = response;
       }
-    )
+    });
+  }
+
+  public cancelPendingRequests(): void {
+    console.log('Kanceluje pendigujące rikłesty');
+    this.httpService.cancelRequests().toPromise().then((response) => {
+      console.log('All requests were canceled!', response);
+    });
   }
 }
