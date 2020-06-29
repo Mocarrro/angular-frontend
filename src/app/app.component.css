@@ -17,8 +17,8 @@
 
 .displayedText{
     min-width: 40%;
-    padding: 50px;
-    margin: 30px;
+    padding: 5px;
+    margin: 5px;
 }
 .button{
     background-color:rgb(19, 19, 248) ;
@@ -29,7 +29,6 @@
     background-color: green;
     color: white;
 }
-
 .displayedText{
     background-color: rgb(190, 157, 9);
     color: white;

@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
 
    receivedNotes: Note[];
 
-   note: Note; 
+   note: Note;  
 
   constructor(private httpService: HttpService) {
     this.note = new Note();
