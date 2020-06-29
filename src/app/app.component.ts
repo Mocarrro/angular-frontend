@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms'
-import { httpService } from './services/httpService'
-import { Notes } from './classes/notes'
+import { HttpService } from './services/httpService'
+import { Note } from './classes/note'
 
 @Component({
   selector: 'app-root',
@@ -10,31 +10,37 @@ import { Notes } from './classes/notes'
 })
 export class AppComponent implements OnInit {
 
-  DelayInput = new FormControl('')
-  TextInput = new FormControl('')
-  DelayButton = new FormControl('')
+   delayButton = new FormControl('');
 
-  receivedNote: Notes
-  note = new Notes()
+   delayInput = new FormControl('');
 
-  constructor(private _httpService: httpService) {
+   textInput = new FormControl('');
 
-  }
-  ngOnInit() {
-    this.DelayButton.setValue("Set delay")
-  }
+   receivedNotes: Note[];
 
+   note: Note; 
 
-  setDelay() {
-    this.note.noteDelay = this.DelayInput.value
-    this.DelayButton.setValue("Set delay (current: " + this.DelayInput.value + ")")
+  constructor(private httpService: HttpService) {
+    this.note = new Note();
   }
 
-  setText() {
-    this.note.noteText = this.TextInput.value
-    this._httpService.sendToBackend(this.note).subscribe(
-      data => {
-        this.receivedNote = data
+  public ngOnInit(): void {
+    this.delayButton.setValue("Set delay");
+  }
+
+  public setDelay(): void {
+    this.note.noteDelay = this.delayInput.value;
+    this.delayButton.setValue("Set delay (current: " + this.delayInput.value + ")");
+  }
+
+  public setText(): void {
+    this.note.noteText = this.textInput.value;
+    this.note.timestamp = Date.now();
+
+    this.httpService.sendToBackend(this.note).subscribe(
+      response => {
+        console.log('Hey, I got response!', response);
+        this.receivedNotes = response;
       }
     )
   }

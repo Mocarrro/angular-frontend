@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core'
 import { AppComponent } from './app.component'
 import { ReactiveFormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http'
-import { httpService } from './services/httpService'
+import { HttpService } from './services/httpService'
 
 @NgModule({
   declarations: [
@@ -14,7 +14,7 @@ import { httpService } from './services/httpService'
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [httpService],
+  providers: [HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

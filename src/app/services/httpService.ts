@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core'
 import { Observable } from 'rxjs'
 import { HttpClient, HttpParams } from '@angular/common/http'
-import { Notes } from '../classes/notes';
+import { Note } from '../classes/note';
 
 @Injectable()
-export class httpService {
+export class HttpService {
     readonly URL = 'http://localhost:3000/notes';
 
     constructor(private httpClient: HttpClient) { }
@@ -13,7 +13,7 @@ export class httpService {
         return this.httpClient.get(this.URL)
     }
 
-    sendToBackend(note: Notes): Observable<any> {
+    sendToBackend(note: Note): Observable<any> {
         return this.httpClient.post(this.URL, note)
     }
 }  

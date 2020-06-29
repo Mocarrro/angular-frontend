@@ -14,19 +14,19 @@
 
   <div class="container">
     <div class="card">
-      <input class="input content" type="number" placeholder="Enter delay..." [formControl]="DelayInput">
-      <input class="input content" type="text" required placeholder="Enter transform text..." [formControl]="TextInput">
+      <input class="input content" type="number" placeholder="Enter delay..." [formControl]="delayInput">
+      <input class="input content" type="text" required placeholder="Enter transform text..." [formControl]="textInput">
     </div>
     <div class="card">
-      <input class="button content" type="button" value="Set delay" [formControl]="DelayButton" (click)="setDelay()">
+      <input class="button content" type="button" value="Set delay" [formControl]="delayButton" (click)="setDelay()">
       <input class="button content" type="button" value="Submit text" (click)="setText()">
     </div>
     <div class="card">
-      <div class="displayedText">
+      <div class="displayedText" *ngFor="let receivedNote of receivedNotes">
         {{receivedNote?.noteText}}
       </div>
     </div>
   </div>
 </body>
-
+ 
 </html>
