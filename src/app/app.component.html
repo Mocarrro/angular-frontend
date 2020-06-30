@@ -18,9 +18,12 @@
       <input class="input content" type="text" required placeholder="Enter transform text..." [formControl]="textInput">
     </div>
     <div class="card">
-      <input class="button content" type="button" value="Set delay" [formControl]="delayButton" (click)="setDelay()">
-      <input class="button content" type="button" value="Submit text" (click)="setText()">
-      <input class="button content" type="button" value="Cancel Pending Requests" (click)="cancelPendingRequests()">
+      <input class="submitButton content" type="button" value="Set delay" [formControl]="delayButton" (click)="setDelay()">
+      <input class="submitButton content" type="button" value="Submit text" (click)="setText()">
+    </div>
+    <div class="card">
+      <input class="changeButton content" type="button" value="Delete requests" (click)="deleteRequests()">
+      <input class="changeButton content" type="button" value="Cancel pending requests" (click)="cancelPendingRequests()">
     </div>
     <div class="card">
       <div class="displayedText" *ngFor="let receivedNote of receivedNotes">
@@ -29,5 +32,5 @@
     </div>
   </div>
 </body>
- 
+
 </html>

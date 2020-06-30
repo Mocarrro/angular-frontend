@@ -14,6 +14,10 @@ export class HttpService {
         return this.httpClient.post(this.URL + '/cancel', undefined);
     }
 
+    deleteRequests(): Observable<any> {
+        return this.httpClient.delete(this.URL + '/delete', undefined);
+    }
+
     getNote(): Observable<any> {
         return this.httpClient.get(this.URL)
     }

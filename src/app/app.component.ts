@@ -46,9 +46,20 @@ export class AppComponent implements OnInit {
   }
 
   public cancelPendingRequests(): void {
-    console.log('Kanceluje pendigujące rikłesty');
     this.httpService.cancelRequests().toPromise().then((response) => {
       console.log('All requests were canceled!', response);
     });
   }
+  public deleteRequests(): void {
+    this.httpService.deleteRequests().toPromise().then((response) => {
+      console.log('All requests were deleted!', response);
+      this.receivedNotes = response;
+    });
+  }
 }
+
+
+
+
+
+
